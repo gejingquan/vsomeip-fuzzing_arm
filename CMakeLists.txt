@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(vsomeip-fuzzing)
 
-set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+set(CMAKE_CXX_COMPILER "/usr/bin/arm-linux-gnueabihf-g++")
 
 option(USE_GCC "Set gcc compiler support for AFL coverage report generation" OFF)
 option(COVERAGE "Set gcc compiler flags for AFL coverage report generation" OFF)
@@ -20,8 +20,8 @@ if (COVERAGE)
 endif()
 
 
-set(Boost_INCLUDE_DIR "/usr/include")
-set(Boost_LIBRARY_DIR "/usr/lib/x86_64-linux-gnu")
+set(Boost_INCLUDE_DIR "/boost_1_74_0/install/include")
+set(Boost_LIBRARY_DIR "/boost_1_74_0/install/lib")
 
 find_package(vsomeip3 3.1.14 REQUIRED)
 find_package(Boost 1.74.0 COMPONENTS system thread log REQUIRED)
