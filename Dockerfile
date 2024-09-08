@@ -50,7 +50,12 @@ RUN mkdir fuzzing && \
 # Copy necessary binaries and libraries for fuzzing
 WORKDIR /
 RUN mkdir fuzz && \
-    cd fuzz && \    
+    cd /fuzz && \
+    mkdir output && \
+    mkdir input && \
+    cd input && \
+    wget https://raw.githubusercontent.com/maoyixie/vsomeip-fuzzing_arm/main/input/vsomeip.json && \
+    cd /fuzz && \
     mkdir tmp && \
     mkdir lib && \
     cp /fuzzing/build/fuzzing ./ && \
@@ -58,12 +63,6 @@ RUN mkdir fuzz && \
     find /vsomeip/build/ -type f -exec cp {} /fuzz/lib/ \; && \
     find /boost_1_74_0/install/lib/ -type f -exec cp {} /fuzz/lib/ \; && \
     find /usr/arm-linux-gnueabihf/lib/ -type f -exec cp {} /fuzz/lib/ \;
-
-# Setup input and output directories for AFL
-RUN mkdir output && \
-    mkdir input && \
-    cd input && \
-    wget https://raw.githubusercontent.com/maoyixie/vsomeip-fuzzing_arm/main/input/vsomeip.json
 
 # Set default work directory
 WORKDIR /fuzz
