@@ -55,9 +55,9 @@ RUN mkdir fuzz && \
     mkdir lib && \
     cp /fuzzing/build/fuzzing ./ && \
     cp /AFLplusplus/qemu_mode/qemuafl/build/arm-linux-user/qemu-arm ./ && \
-    cp /vsomeip/build/* /fuzz/lib/ && \
-    cp /boost_1_74_0/install/lib/* /fuzz/lib/ && \
-    cp /usr/arm-linux-gnueabihf/lib/* /lib/
+    find /vsomeip/build/ -type f -exec cp {} /fuzz/lib/ \; && \
+    find /boost_1_74_0/install/lib/ -type f -exec cp {} /fuzz/lib/ \; && \
+    find /usr/arm-linux-gnueabihf/lib/ -type f -exec cp {} /fuzz/lib/ \;
 
 # Setup input and output directories for AFL
 RUN mkdir output && \
