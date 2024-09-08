@@ -60,9 +60,10 @@ RUN mkdir fuzz && \
     mkdir lib && \
     cp /fuzzing/build/fuzzing ./ && \
     cp /AFLplusplus/qemu_mode/qemuafl/build/arm-linux-user/qemu-arm ./ && \
-    find /vsomeip/build/ -type f -exec cp -L {} /fuzz/lib/ \; && \
-    find /boost_1_74_0/install/lib/ -type f -exec cp -L {} /fuzz/lib/ \; && \
-    find /usr/arm-linux-gnueabihf/lib/ -type f -exec cp -L {} /fuzz/lib/ \;
+    find /vsomeip/build/ -maxdepth 1 -type f -exec cp {} /fuzz/lib/ \; && \
+    find /boost_1_74_0/install/lib/ -maxdepth 1 -type f -exec cp {} /fuzz/lib/ \; && \
+    find /usr/arm-linux-gnueabihf/lib/ -maxdepth 1 -type f -exec cp {} /fuzz/lib/ \; && \
+    find /usr/arm-linux-gnueabihf/lib/ -maxdepth 1 -type f -exec cp {} /lib/ \;
 
 # Set default work directory
 WORKDIR /fuzz
