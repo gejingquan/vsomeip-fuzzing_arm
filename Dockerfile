@@ -28,6 +28,7 @@ RUN wget https://archives.boost.io/release/1.74.0/source/boost_1_74_0.tar.gz && 
 WORKDIR /
 RUN git clone https://github.com/COVESA/vsomeip && \
     cd vsomeip && \
+    git checkout 637fb6ccce969f89621660dd481badb29a90d661 && \
     rm -rf CMakeLists.txt && \
     wget https://raw.githubusercontent.com/maoyixie/vsomeip-fuzzing_arm/main/vsomeip/CMakeLists.txt && \
     mkdir build && \
