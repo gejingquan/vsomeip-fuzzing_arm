@@ -68,3 +68,4 @@ RUN mkdir fuzz && \
 
 # Set default work directory
 WORKDIR /fuzz
+COPY ./EmFuzz.sh /fuzz
