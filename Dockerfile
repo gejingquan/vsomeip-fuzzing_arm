@@ -69,3 +69,6 @@ RUN mkdir fuzz && \
 # Set default work directory
 WORKDIR /fuzz
 COPY ./EmFuzz.sh /fuzz
+RUN chmod u+x EmFuzz.sh
+RUN chmod g+x EmFuzz.sh
+RUN chmod o+x EmFuzz.sh
