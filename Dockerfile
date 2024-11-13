@@ -72,3 +72,6 @@ COPY ./EmFuzz.sh /fuzz
 RUN chmod u+x EmFuzz.sh
 RUN chmod g+x EmFuzz.sh
 RUN chmod o+x EmFuzz.sh
+
+# Create a mapped folder
+RUN mkdir -p /AFL/vol
