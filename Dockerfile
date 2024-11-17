@@ -75,4 +75,4 @@ RUN chmod o+x EmFuzz.sh
 
 # Create a mapped folder
 RUN mkdir -p /AFL/vol
-RUN chmod 777 -R /AFL/vol
+RUN chmod 777 -R /AFL
