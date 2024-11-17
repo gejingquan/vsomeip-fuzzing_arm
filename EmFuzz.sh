@@ -18,4 +18,6 @@ echo job_fuzzer_identifier    :$job_fuzzer_identifier
 echo job_dictionary is        :$job_dictionary
 echo ==============================================
 
+
+cp $job_corpus/library/*  /fuzz/lib/     
 afl-fuzz -i $job_corpus -o $job_output -Q -S $job_fuzzer_identifier -- $job_fuzz_target_path @@
